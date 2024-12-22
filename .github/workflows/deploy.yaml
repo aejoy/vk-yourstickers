@@ -58,8 +58,6 @@ jobs:
             export REDIS_URL="${{ secrets.REDIS_URL }}"
             export TOKEN="${{ secrets.TOKEN }}"
             export USER_TOKEN="${{ secrets.USER_TOKEN }}"
-            docker stop vk-yourstickers-app
-            docker rm vk-yourstickers-app
-            docker pull ghcr.io/aejoy/vk-yourstickers:latest
+            docker-compose pull
             docker-compose up -d
             docker image prune
