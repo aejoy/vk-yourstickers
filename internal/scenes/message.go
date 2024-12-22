@@ -40,7 +40,7 @@ func (s MessageScene) Message(bot *api.API, message update.Message) {
 	in := strings.Fields(message.Text)
 
 	if cmd, ok := s.commands[in[0]]; ok {
-		if err := cmd.Execute(bot, in[1:], message); err != nil {
+		if err := cmd.Execute(bot, message, in[1:]); err != nil {
 			if _, err := bot.SendMessage(message.ChatID, err.Error()); err != nil {
 				fmt.Println("main.SendMessage error:", err)
 			}

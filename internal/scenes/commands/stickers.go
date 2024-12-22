@@ -29,7 +29,7 @@ func NewStickersCmd(userBot *api.API, uploaderService *uploader.Service, sticker
 	return StickersCmd{userBot, uploaderService, stickersService}
 }
 
-func (c StickersCmd) Execute(bot *api.API, args []string, message update.Message) error {
+func (c StickersCmd) Execute(bot *api.API, message update.Message, args []string) error {
 	fwdMsg, err := types.NewForward(message.ChatID, message.ChatMessageID, true)
 	if err != nil {
 		return errors.Wrap(err, "NewForward")

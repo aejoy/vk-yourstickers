@@ -22,5 +22,5 @@ type Service interface {
 }
 
 type Command interface {
-	Execute(bot *api.API, args []string, message update.Message) error
+	Execute(bot *api.API, message update.Message, args []string) error
 }

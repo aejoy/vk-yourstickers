@@ -18,7 +18,7 @@ func NewPingCmd() PingCmd {
 	return PingCmd{}
 }
 
-func (c PingCmd) Execute(bot *api.API, _ []string, message update.Message) error {
+func (c PingCmd) Execute(bot *api.API, message update.Message, _ []string) error {
 	now, text := time.Now(), "✦ Понг!"
 
 	sent, err := bot.SendMessage(message.ChatID, text)
