@@ -37,10 +37,13 @@ func (s MessageScene) Message(bot *api.API, message update.Message) {
 
 	message.Text = message.Text[1:]
 
-	in := strings.Fields(message.Text)
+	args := strings.Fields(message.Text)
+	if len(args) == 0 {
+		return
+	}
 
-	if cmd, ok := s.commands[in[0]]; ok {
-		if err := cmd.Execute(bot, message, in[1:]); err != nil {
+	if cmd, ok := s.commands[args[0]]; ok {
+		if err := cmd.Execute(bot, message, args[1:]); err != nil {
 			if _, err := bot.SendMessage(message.ChatID, err.Error()); err != nil {
 				fmt.Println("main.SendMessage error:", err)
 			}
