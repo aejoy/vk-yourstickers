@@ -55,10 +55,10 @@ func main() {
 	}
 
 	stickersService := stickers.NewStickersService(db, cache)
-	message := scenes.NewMessageScene(user,
+	scenes := scenes.NewScenes(user,
 		uploader.NewUploaderService(bot.ID, albumID, stickersService),
 		stickersService,
 	)
 
-	log.Fatalln(longpoll.Start(bot, scene.Message(message.Message)))
+	log.Fatalln(longpoll.Start(bot, scene.Message(scenes.Message)))
 }

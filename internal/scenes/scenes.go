@@ -12,12 +12,12 @@ import (
 	"github.com/aejoy/vkgo/update"
 )
 
-type MessageScene struct {
+type Scenes struct {
 	commands map[string]interfaces.Command
 }
 
-func NewMessageScene(userBot *api.API, uploaderService *uploader.Service, stickersService interfaces.Service) MessageScene {
-	return MessageScene{
+func NewScenes(userBot *api.API, uploaderService *uploader.Service, stickersService interfaces.Service) Scenes {
+	return Scenes{
 		commands: map[string]interfaces.Command{
 			"пинг":    commands.NewPingCmd(),
 			"помощь":  commands.NewHelpCmd(),
@@ -26,7 +26,7 @@ func NewMessageScene(userBot *api.API, uploaderService *uploader.Service, sticke
 	}
 }
 
-func (s MessageScene) Message(bot *api.API, message update.Message) {
+func (s Scenes) Message(bot *api.API, message update.Message) {
 	if len(message.Text) == 0 {
 		return
 	}
