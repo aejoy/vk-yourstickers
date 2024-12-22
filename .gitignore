@@ -1,4 +1,4 @@
 .idea
 .env
 tmp
-deployments/dev/pgdata
+deployments/pgdata
