@@ -1,0 +1,6 @@
+.idea
+.git
+.github
+.env
+tmp
+deployments/dev/pgdata

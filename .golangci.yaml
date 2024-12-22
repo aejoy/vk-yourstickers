@@ -1,0 +1,88 @@
+run:
+  timeout: 5m
+
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - os
+          - fmt
+          - log
+          - time
+          - sync
+          - strings
+          - strconv
+          - regexp
+          - bytes
+          - net/url
+          - net/http
+          - math/big
+          - crypto/rand
+          - encoding/json
+          - image
+          - errors
+          - context
+          - testing
+          - github.com/stretchr/testify
+          - go.uber.org/zap
+          - github.com/pkg/errors
+          - github.com/joho/godotenv
+          - github.com/aejoy/go-pkg
+          - github.com/aejoy/vkgo
+          - github.com/nfnt/resize
+          - github.com/redis/rueidis
+          - github.com/jackc/pgx/v5/pgxpool
+          - github.com/aejoy/vk-yourstickers
+  lll:
+    line-length: 200
+
+linters:
+  disable-all: true
+  enable:
+    - asciicheck
+    - bodyclose
+    - depguard
+    - dogsled
+    - dupl
+    - errcheck
+    - copyloopvar
+    - funlen
+    - gochecknoglobals
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - gocognit
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - godox
+    - err113
+    - gofmt
+    - goimports
+    - mnd
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - lll
+    - misspell
+    - nakedret
+    - nestif
+    - noctx
+    - nolintlint
+    - prealloc
+    - predeclared
+    - revive
+    - staticcheck
+    - stylecheck
+    - testpackage
+    - thelper
+    - tparallel
+    - typecheck
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+    - wsl
