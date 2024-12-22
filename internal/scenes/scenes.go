@@ -38,7 +38,7 @@ func (s Scenes) Message(bot *api.API, message update.Message) {
 	message.Text = message.Text[1:]
 
 	args := strings.Fields(message.Text)
-	if len(args) == 0 {
+	if len(args) <= 0 {
 		return
 	}
 
