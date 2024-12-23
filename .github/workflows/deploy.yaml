@@ -46,6 +46,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
+            set -e
             cd ${{ secrets.WORKDIR }}
             export ALBUM_ID="${{ secrets.ALBUM_ID }}"
             export POSTGRES_URL="${{ secrets.POSTGRES_URL }}"
@@ -53,5 +54,6 @@ jobs:
             export TOKEN="${{ secrets.TOKEN }}"
             export USER_TOKEN="${{ secrets.USER_TOKEN }}"
             docker-compose down
-            docker-compose pull
+            docker-compose pull 
             docker-compose up -d
+            docker image prune -af
