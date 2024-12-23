@@ -58,6 +58,7 @@ jobs:
             export REDIS_URL="${{ secrets.REDIS_URL }}"
             export TOKEN="${{ secrets.TOKEN }}"
             export USER_TOKEN="${{ secrets.USER_TOKEN }}"
+            docker-compose down
             docker-compose pull
             docker-compose up -d
             docker image prune
