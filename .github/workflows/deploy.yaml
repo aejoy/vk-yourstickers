@@ -26,11 +26,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GH_SECRET }}
-      - name: Extract metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       - name: Build & Push
         id: push
         uses: docker/build-push-action@v6
@@ -38,7 +33,6 @@ jobs:
           file: ./deployments/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          labels: ${{ steps.meta.outputs.labels }}
 
   deploy:
     name: Deploy to VDS
@@ -61,4 +55,3 @@ jobs:
             docker-compose down
             docker-compose pull
             docker-compose up -d
-            docker image prune
